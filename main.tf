@@ -1,7 +1,3 @@
-data "aws_vpc" "Default" {
-  default = true
-}
-
 resource "aws_instance" "billtest-informatica" {
   ami           = "ami-0075013580f6322a1"
   instance_type = var.instance_type
@@ -23,7 +19,7 @@ resource "aws_security_group" "billtest_informatica_sg" {
   name        = "billtest_informatica_sg"
   description = "Allow ssh in, Allow everything out"
 
-  vpc_id = data.aws_vpc.Default.id
+  vpc_id = "vpc-0e62ea6b"
 }
 
 resource "aws_security_group_rule" "billtest_ssh_in" {
