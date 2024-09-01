@@ -23,7 +23,7 @@ resource "aws_security_group" "billtest_informatica_sg" {
   name        = "billtest_informatica_sg"
   description = "Allow ssh in, Allow everything out"
 
-  vpc_id = data.aws_vpc.default.id
+  vpc_id = data.aws_vpc.Default.id
 }
 
 resource "aws_security_group_rule" "billtest_ssh_in" {
