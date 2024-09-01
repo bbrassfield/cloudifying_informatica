@@ -2,6 +2,8 @@ resource "aws_instance" "billtest-informatica" {
   ami           = "ami-0075013580f6322a1"
   instance_type = var.instance_type
 
+  subnet_id = "subnet-cc8d8597"
+
   vpc_security_group_ids = [aws_security_group.billtest_informatica_sg.id]
 
   key_name = "bbrassfield_ubuntu-lab"
