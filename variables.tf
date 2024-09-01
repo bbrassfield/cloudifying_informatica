@@ -3,6 +3,13 @@ variable "instance_type" {
   default     = "t2.2xlarge"
 }
 
+variable "cloud_init_gpg_pass" {
+  description = "GPG passphrase which decrypts the cloud-init script in the user_data"
+  type        = string
+  sensitive   = true
+  default     = "open_sesame"
+}
+
 variable "idmc_sa_installer_user" {
   description = "Username passed into the idmc_secure_agent_installer.py script"
   type        = string
