@@ -31,6 +31,13 @@ variable "idmc_sa_installer_group" {
   default     = "joe_group"
 }
 
+variable "artifacts_host" {
+  description = "The artifacts repository host"
+  type        = string
+  sensitive   = true
+  default     = "localhost"
+}
+
 variable "jas_enc_pwd" {
   description = "The jasypt encryptor password"
   type        = string

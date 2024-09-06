@@ -18,11 +18,12 @@ resource "aws_instance" "billtest-informatica" {
 
   user_data = <<-EOF
               #!/bin/bash
-              wget -O /root/cloud_init_script.sh http://10.181.35.127/_hosted_only/informatica/files/root/cloud_init_script.sh
+              wget -O /root/cloud_init_script.sh http://${var.artifacts_host}/_hosted_only/informatica/files/root/cloud_init_script.sh
               chmod 700 /root/cloud_init_script.sh
               IDMC_SA_INSTALLER_USER='${var.idmc_sa_installer_user}' \
                 IDMC_SA_INSTALLER_PASS='${var.idmc_sa_installer_pass}' \
                 IDMC_SA_INSTALLER_GROUP='${var.idmc_sa_installer_group}' \
+                ARTIFACTS_HOST='${var.artifacts_host}' \
                 JAS_ENC_PWD='${var.jas_enc_pwd}' /root/cloud_init_script.sh
               EOF
 }
