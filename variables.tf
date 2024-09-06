@@ -30,3 +30,10 @@ variable "idmc_sa_installer_group" {
   sensitive   = true
   default     = "joe_group"
 }
+
+variable "jas_enc_pwd" {
+  description = "The jasypt encryptor password"
+  type        = string
+  sensitive   = true
+  default     = "jep"
+}
