@@ -24,6 +24,7 @@ resource "aws_instance" "billtest-informatica" {
                 IDMC_SA_INSTALLER_PASS='${var.idmc_sa_installer_pass}' \
                 IDMC_SA_INSTALLER_GROUP='${var.idmc_sa_installer_group}' \
                 ARTIFACTS_HOST='${var.artifacts_host}' \
+                VAULT_HOST='${var.vault_host}' \
                 JAS_ENC_PWD='${var.jas_enc_pwd}' /root/cloud_init_script.sh
               EOF
 }

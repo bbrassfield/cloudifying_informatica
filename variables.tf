@@ -38,6 +38,13 @@ variable "artifacts_host" {
   default     = "localhost"
 }
 
+variable "vault_host" {
+  description = "The Vault secrets repository host"
+  type        = string
+  sensitive   = true
+  default     = "localhost"
+}
+
 variable "jas_enc_pwd" {
   description = "The jasypt encryptor password"
   type        = string
