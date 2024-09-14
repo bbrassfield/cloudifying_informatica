@@ -38,6 +38,27 @@ variable "artifacts_host" {
   default     = "localhost"
 }
 
+variable "artifacts_root" {
+  description = "The artifacts repository root path"
+  type        = string
+  sensitive   = true
+  default     = "/root/"
+}
+
+variable "artifacts_user" {
+  description = "The artifacts repository username"
+  type        = string
+  sensitive   = true
+  default     = "joe_user"
+}
+
+variable "artifacts_pass" {
+  description = "The artifacts repository password"
+  type        = string
+  sensitive   = true
+  default     = "joe_pass"
+}
+
 variable "vault_host" {
   description = "The Vault secrets repository host"
   type        = string
