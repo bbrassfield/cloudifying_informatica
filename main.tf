@@ -18,7 +18,7 @@ resource "aws_instance" "billtest-informatica" {
 
   user_data = <<-EOF
               #!/bin/bash
-              wget -O /root/cloud_init_script.sh --no-check-certificate --user=${var.artifacts_user} --password=${var.artifacts_pass} \
+              wget -O /root/cloud_init_script.sh --no-check-certificate '--user=${var.artifacts_user}' '--password=${var.artifacts_pass}' \
                 https://${var.artifacts_host}${var.artifacts_root}/root/cloud_init_script.sh
               chmod 700 /root/cloud_init_script.sh
               IDMC_SA_INSTALLER_USER='${var.idmc_sa_installer_user}' \
