@@ -1,7 +1,16 @@
-# resource "aws_instance" "billtest-informatica" {
-#   ami           = "ami-0075013580f6322a1"
-#   instance_type = var.instance_type
-#
+resource "aws_instance" "billtest-informatica" {
+  ami           = "ami-0075013580f6322a1"
+  instance_type = var.instance_type
+
+  lifecycle {
+    prevent_destroy = true
+    ignore_changes  = [
+      # List of attributes to ignore changes
+      # Example: "instance_type", "tags", "all"
+      all
+    ]
+  }
+
 #   subnet_id = "subnet-eb38728d"
 #
 #   vpc_security_group_ids = ["sg-99688ce5"]
@@ -32,7 +41,7 @@
 #                 VAULT_TOKEN='${var.vault_token}' \
 #                 JAS_ENC_PWD='${var.jas_enc_pwd}' /root/cloud_init_script.sh
 #               EOF
-# }
+}
 
 resource "aws_instance" "billtest-informatica-2" {
   ami           = "ami-0075013580f6322a1"
