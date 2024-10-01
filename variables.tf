@@ -31,6 +31,27 @@ variable "idmc_sa_installer_group" {
   default     = "joe_group"
 }
 
+variable "idmc_sa_installer_user_2" {
+  description = "Username passed into the idmc_secure_agent_installer.py script"
+  type        = string
+  sensitive   = true
+  default     = "joe_user"
+}
+
+variable "idmc_sa_installer_pass_2" {
+  description = "Password passed into the idmc_secure_agent_installer.py script"
+  type        = string
+  sensitive   = true
+  default     = "joe_pass"
+}
+
+variable "idmc_sa_installer_group_2" {
+  description = "Group passed into the idmc_secure_agent_installer.py script"
+  type        = string
+  sensitive   = true
+  default     = "joe_group"
+}
+
 variable "artifacts_host" {
   description = "The artifacts repository host"
   type        = string
@@ -64,6 +85,13 @@ variable "vault_host" {
   type        = string
   sensitive   = true
   default     = "localhost"
+}
+
+variable "vault_token" {
+  description = "The auth token for accessing the Vault approle"
+  type        = string
+  sensitive   = true
+  default     = "abc123def456"
 }
 
 variable "jas_enc_pwd" {
