@@ -7,14 +7,14 @@ resource "aws_instance" "billtest-informatica" {
     ignore_changes  = [
       # List of attributes to ignore changes
       # Example: "instance_type", "tags"
-      "ami",
-      "instance_type",
-      "tags",
-      "user_data",
-      "key_name",
-      "subnet_id",
-      "vpc_security_group_ids",
-      "root_block_device"
+      ami,
+      instance_type,
+      tags,
+      user_data,
+      key_name,
+      subnet_id,
+      vpc_security_group_ids,
+      root_block_device
     ]
   }
 
