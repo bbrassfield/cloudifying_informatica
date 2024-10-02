@@ -21,3 +21,15 @@ output "instance_arn_2" {
 output "instance_public_ip_2" {
   value = aws_instance.billtest-informatica-2.public_ip
 }
+
+output "instance_ami_3" {
+  value = aws_instance.billtest-informatica-3.ami
+}
+
+output "instance_arn_3" {
+  value = aws_instance.billtest-informatica-3.arn
+}
+
+output "instance_public_ip_3" {
+  value = aws_instance.billtest-informatica-3.public_ip
+}
