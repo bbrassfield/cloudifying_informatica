@@ -134,6 +134,9 @@ resource "aws_instance" "billtest-informatica-3" {
                 ARTIFACTS_PASS='${var.artifacts_pass}' \
                 VAULT_HOST='${var.vault_host}' \
                 VAULT_TOKEN='${var.vault_token}' \
+                MMDM_DB_SERVERNAME='${var.mmdm_db_servername_qa11}' \
+                WAREHOUSE_DB_ENV='${var.warehouse_db_env_qa11}' \
+                WAREHOUSE_DB_SERVERNAME='${var.warehouse_db_servername_qa11}' \
                 JAS_ENC_PWD='${var.jas_enc_pwd}' /root/cloud_init_script.sh
               EOF
 }
