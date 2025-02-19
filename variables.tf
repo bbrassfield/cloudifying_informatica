@@ -121,3 +121,24 @@ variable "warehouse_db_servername_qa11" {
   sensitive   = true
   default     = "abc123def456"
 }
+
+variable "mmdm_db_servername_qa9" {
+  description = "The MMDB Server Name for the qa9 environment"
+  type        = string
+  sensitive   = true
+  default     = "abc123def456"
+}
+
+variable "warehouse_db_env_qa9" {
+  description = "The Warehouse DB Environment Name for the qa9 environment"
+  type        = string
+  sensitive   = true
+  default     = "abc123def456"
+}
+
+variable "warehouse_db_servername_qa9" {
+  description = "The Warehouse DB Server Name for the qa9 environment"
+  type        = string
+  sensitive   = true
+  default     = "abc123def456"
+}
