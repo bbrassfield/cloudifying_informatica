@@ -196,6 +196,45 @@ resource "aws_instance" "billtest-informatica-4" {
               EOF
 }
 
+resource "aws_instance" "billtest-informatica-5" {
+  ami           = "ami-0de5ce2b7cd70d035"
+  instance_type = var.instance_type
+
+  subnet_id = "subnet-eb38728d"
+
+  vpc_security_group_ids = ["sg-99688ce5"]
+
+  key_name = "bbrassfield_ubuntu-lab"
+
+  root_block_device {
+    volume_size = 50
+  }
+
+  tags = {
+    Name = "Bills Terraform Informatica Test VM 5"
+  }
+
+  user_data = <<-EOF
+              #!/bin/bash
+              wget -O /root/cloud_init_script.sh --no-check-certificate '--user=${var.artifacts_user}' '--password=${var.artifacts_pass}' \
+                https://${var.artifacts_host}${var.artifacts_root}/root/cloud_init_script.sh
+              chmod 700 /root/cloud_init_script.sh
+              echo IDMC_SA_INSTALLER_USER='${var.idmc_sa_installer_user}' \
+                IDMC_SA_INSTALLER_PASS='${var.idmc_sa_installer_pass}' \
+                IDMC_SA_INSTALLER_GROUP='${var.idmc_sa_installer_group}' \
+                ARTIFACTS_HOST='${var.artifacts_host}' \
+                ARTIFACTS_ROOT='${var.artifacts_root}' \
+                ARTIFACTS_USER='${var.artifacts_user}' \
+                ARTIFACTS_PASS='${var.artifacts_pass}' \
+                VAULT_HOST='${var.vault_host}' \
+                VAULT_TOKEN='${var.vault_token}' \
+                MMDM_DB_SERVERNAME='${var.mmdm_db_servername_qa9}' \
+                WAREHOUSE_DB_ENV='${var.warehouse_db_env_qa9}' \
+                WAREHOUSE_DB_SERVERNAME='${var.warehouse_db_servername_qa9}' \
+                JAS_ENC_PWD='${var.jas_enc_pwd}' /root/cloud_init_script.sh
+              EOF
+}
+
 resource "aws_security_group" "billtest_informatica_sg" {
   name        = "billtest_informatica_sg"
   description = "Allow ssh in, Allow everything out"
