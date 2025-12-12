@@ -183,29 +183,29 @@
 #               EOF
 # }
 
-resource "aws_security_group" "billtest_informatica_sg" {
-  name        = "billtest_informatica_sg"
-  description = "Allow ssh in, Allow everything out"
-
-  vpc_id = "vpc-0e62ea6b"
-}
-
-resource "aws_security_group_rule" "billtest_ssh_in" {
-  type        = "ingress"
-  from_port   = 22
-  to_port     = 22
-  protocol    = "tcp"
-  cidr_blocks = ["0.0.0.0/0"]
-
-  security_group_id = aws_security_group.billtest_informatica_sg.id
-}
-
-resource "aws_security_group_rule" "billtest_everything_out" {
-  type        = "egress"
-  from_port   = 0
-  to_port     = 0
-  protocol    = "-1"
-  cidr_blocks = ["0.0.0.0/0"]
-
-  security_group_id = aws_security_group.billtest_informatica_sg.id
-}
+# resource "aws_security_group" "billtest_informatica_sg" {
+#   name        = "billtest_informatica_sg"
+#   description = "Allow ssh in, Allow everything out"
+#
+#   vpc_id = "vpc-0e62ea6b"
+# }
+#
+# resource "aws_security_group_rule" "billtest_ssh_in" {
+#   type        = "ingress"
+#   from_port   = 22
+#   to_port     = 22
+#   protocol    = "tcp"
+#   cidr_blocks = ["0.0.0.0/0"]
+#
+#   security_group_id = aws_security_group.billtest_informatica_sg.id
+# }
+#
+# resource "aws_security_group_rule" "billtest_everything_out" {
+#   type        = "egress"
+#   from_port   = 0
+#   to_port     = 0
+#   protocol    = "-1"
+#   cidr_blocks = ["0.0.0.0/0"]
+#
+#   security_group_id = aws_security_group.billtest_informatica_sg.id
+# }
